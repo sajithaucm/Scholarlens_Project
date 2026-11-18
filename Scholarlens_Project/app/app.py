@@ -75,7 +75,7 @@ def build_ui():
         with gr.Row():
             pdf = gr.File(label="Upload paper (PDF)", file_types=[".pdf"])
             text = gr.Textbox(label="...or paste paper text", lines=8,
-                              value=EXAMPLE.read_text() if EXAMPLE.exists() else "")
+                              value=EXAMPLE.read_text(encoding="utf-8") if EXAMPLE.exists() else "")
         load_btn = gr.Button("Load paper", variant="primary")
         status = gr.Markdown()
         load_btn.click(load, [pdf, text], [status, text])

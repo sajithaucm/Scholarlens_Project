@@ -8,6 +8,7 @@ import json
 import os
 import platform
 import random
+import re
 import time
 from pathlib import Path
 from typing import Any, Dict, Optional
@@ -25,7 +26,7 @@ def load_config(path: Path = CONFIG_PATH) -> dict:
     override the output paths without editing the file (used on Colab to save
     checkpoints to Google Drive so they survive a disconnect).
     """
-    with open(path, "r") as f:
+    with open(path, "r", encoding="utf-8") as f:
         cfg = yaml.safe_load(f)
     for key, env in (("output_dir", "SCHOLARLENS_OUTPUT_DIR"), ("results_dir", "SCHOLARLENS_RESULTS_DIR")):
         if os.environ.get(env):
@@ -57,8 +58,19 @@ def resolve(path_str: str) -> Path:
 
 
 def safe_name(model_name: str) -> str:
-    """'facebook/bart-base' -> 'facebook__bart-base' (safe for folder names)."""
-    return model_name.replace("/", "__")
+    """Make a model name safe for file and folder names on Windows, macOS and Linux.
+
+    'facebook/bart-base'            -> 'facebook__bart-base'   (Hugging Face Hub ID)
+    'C:\\Users\\me\\models\\tiny-bert'  -> 'tiny-bert'             (local folder: keep its name)
+    '/content/drive/.../best'       -> 'best'
+    """
+    from pathlib import PurePosixPath, PureWindowsPath
+    name = str(model_name).rstrip("/\\")
+    if PureWindowsPath(name).is_absolute():
+        name = PureWindowsPath(name).name
+    elif PurePosixPath(name).is_absolute():
+        name = PurePosixPath(name).name
+    return re.sub(r'[\\/:*?"<>|]+', "__", name)
 
 
 def training_settings(cfg: dict, task: str, model_name: str) -> Dict[str, Any]:
@@ -90,7 +102,7 @@ def save_results(cfg: dict, task: str, model_name: str, metrics: Dict[str, Any],
     if extra:
         payload.update(extra)
     path = results_dir / f"{task}_{safe_name(model_name)}.json"
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2)
     print(f"Saved results -> {path}")
     return path
@@ -120,13 +132,13 @@ def use_fp16(settings: Dict[str, Any], model_name: str) -> bool:
 
 def write_jsonl(rows, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         for row in rows:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
 
 
 def read_jsonl(path: Path):
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         return [json.loads(line) for line in f if line.strip()]
 
 

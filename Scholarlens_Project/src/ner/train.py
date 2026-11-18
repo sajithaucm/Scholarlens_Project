@@ -136,7 +136,7 @@ def train(model_name: str, data, cfg: dict) -> Dict:
         n = len(t)   # words beyond max_seq_len were truncated
         rows.append({"tokens": ex["tokens"][:n], "gold": t, "pred": p, "all_correct": t == p})
     write_jsonl(rows[:300], results_dir / f"{TASK}_{safe_name(model_name)}_samples.jsonl")
-    with open(results_dir / f"{TASK}_{safe_name(model_name)}_history.json", "w") as f:
+    with open(results_dir / f"{TASK}_{safe_name(model_name)}_history.json", "w", encoding="utf-8") as f:
         json.dump(trainer.state.log_history, f, indent=1)
     save_results(cfg, TASK, model_name, metrics, extra={
         "settings": s, "data_sizes": {k: len(v) for k, v in data.items()},

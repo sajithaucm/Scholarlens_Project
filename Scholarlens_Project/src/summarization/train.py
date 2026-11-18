@@ -134,7 +134,7 @@ def train(model_name: str, data, cfg: dict, use_bertscore: bool = True) -> Dict:
          for a, r, p in zip(data["test"]["article"][:30], data["test"]["abstract"][:30], preds[:30])],
         results_dir / f"{TASK}_{safe_name(model_name)}_samples.jsonl",
     )
-    with open(results_dir / f"{TASK}_{safe_name(model_name)}_history.json", "w") as f:
+    with open(results_dir / f"{TASK}_{safe_name(model_name)}_history.json", "w", encoding="utf-8") as f:
         json.dump(trainer.state.log_history, f, indent=1)
     save_results(cfg, TASK, model_name, metrics, extra={
         "settings": s,

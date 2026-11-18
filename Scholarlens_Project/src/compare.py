@@ -38,7 +38,7 @@ def load_results(results_dir: Path) -> pd.DataFrame:
     for path in sorted(results_dir.glob("*.json")):
         if path.stem.endswith("_history"):
             continue
-        with open(path) as f:
+        with open(path, encoding="utf-8") as f:
             r = json.load(f)
         if "task" not in r or "metrics" not in r:
             continue
@@ -111,7 +111,7 @@ def plot_losses(results_dir: Path, task: str, path: Path) -> None:
     for i, hp in enumerate(histories):
         color = MODEL_COLORS[i % len(MODEL_COLORS)]
         name = hp.stem[len(task) + 1:-len("_history")].replace("__", "/")
-        log = json.load(open(hp))
+        log = json.load(open(hp, encoding="utf-8"))
         train = [(e["step"], e["loss"]) for e in log if "loss" in e]
         val = [(e["step"], e["eval_loss"]) for e in log if "eval_loss" in e]
         if train:
@@ -148,12 +148,12 @@ def main():
         shown = table.drop(columns="is_baseline")
         shown.to_csv(results_dir / f"comparison_{task}.csv", index=False)
         md = shown.to_markdown(index=False)
-        (results_dir / f"comparison_{task}.md").write_text(md + "\n")
+        (results_dir / f"comparison_{task}.md").write_text(md + "\n", encoding="utf-8")
         sections += [f"\n## {task}\n", md + "\n"]
         plot_metrics(table, task, results_dir / f"fig_{task}_metrics.png")
         plot_losses(results_dir, task, results_dir / f"fig_{task}_loss.png")
         print(f"\n{task}\n{md}")
-    (results_dir / "RESULTS.md").write_text("\n".join(sections))
+    (results_dir / "RESULTS.md").write_text("\n".join(sections), encoding="utf-8")
     print(f"\nWrote tables and figures to {results_dir}")
 
 

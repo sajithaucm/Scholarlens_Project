@@ -41,7 +41,7 @@ def main():
     preds, refs, out_rows, hits, current = {}, {}, [], [], None
     for i, row in enumerate(rows):
         if row["paper_id"] != current:
-            lens.load_paper((ROOT / "eval" / "papers" / f"{row['paper_id']}.txt").read_text())
+            lens.load_paper((ROOT / "eval" / "papers" / f"{row['paper_id']}.txt").read_text(encoding="utf-8"))
             current = row["paper_id"]
         res = lens.answer(row["question"])
         qid = f"q{i}"

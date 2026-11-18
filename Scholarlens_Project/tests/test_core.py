@@ -147,3 +147,12 @@ def test_eda_helpers(tmp_path):
     assert ns["train"]["n_Method"] == 1
     eda.plot_entity_counts(ns, tmp_path / "e.png")
     assert (tmp_path / "e.png").exists()
+
+
+def test_safe_name_all_platforms():
+    from src.utils import safe_name
+    assert safe_name("facebook/bart-base") == "facebook__bart-base"
+    assert safe_name("t5-small") == "t5-small"
+    assert safe_name(r"C:\Users\me\AppData\Local\Temp\pytest-1\models0\tiny-bart") == "tiny-bart"
+    assert safe_name("/tmp/pytest-1/models0/tiny-bert/") == "tiny-bert"
+    assert ":" not in safe_name("weird:name") and "\\" not in safe_name(r"a\b")

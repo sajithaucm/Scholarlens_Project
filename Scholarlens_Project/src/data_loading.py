@@ -224,7 +224,7 @@ def load_ner(cfg: dict, max_samples: int = None) -> DatasetDict:
     out, skipped = {}, 0
     if len(files) == 3:
         for split, path in files.items():
-            with open(path) as f:
+            with open(path, encoding="utf-8") as f:
                 docs = [json.loads(line) for line in f if line.strip()]
             rows, n_skip = scierc_docs_to_sentences(docs)
             skipped += n_skip
@@ -243,7 +243,7 @@ def load_ner(cfg: dict, max_samples: int = None) -> DatasetDict:
         for txt in sorted(local.rglob("*.txt")):
             ann = txt.with_suffix(".ann")
             if ann.exists():
-                rows, n_skip = brat_to_sentences(txt.read_text(), ann.read_text(), txt.stem)
+                rows, n_skip = brat_to_sentences(txt.read_text(encoding="utf-8"), ann.read_text(encoding="utf-8"), txt.stem)
                 skipped += n_skip
                 docs.append(rows)
         if not docs:
