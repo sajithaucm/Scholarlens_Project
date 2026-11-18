@@ -5,12 +5,11 @@
 ## Team
 | Name | Student ID | Module |
 |------|-----------|--------|
-| TODO | TODO | Data preprocessing + Summarization |
-| TODO | TODO | Semantic retrieval + Question Answering |
-| TODO | TODO | Named Entity Recognition + Evaluation |
-| TODO | TODO | Demo app + Architecture diagrams + Repo |
+| Sajitha Konda | 70082694 | Data preprocessing + Summarization (BART vs T5) + Architecture diagrams |
+| Mounika Sai Chowdary Chaparala| 700778259 | Semantic retrieval + Question Answering (DistilBERT vs RoBERTa) + Gradio demo app |
+| Babithji Repalle | TODO | Named Entity Recognition (SciBERT vs BERT) + Evaluation and comparison tables + Repo and README |
 
-Course: TODO | Instructor: TODO | Semester: Fall 2026
+Course: CS5760 | Instructor: Tsai, Ihua | Semester: Fall 2026
 
 ## Introduction
 Researchers and students face far more papers than they can read. ScholarLens is a
