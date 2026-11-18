@@ -5,7 +5,7 @@
 ## Team
 | Name | Student ID | Module |
 |------|-----------|--------|
-| Sajitha Konda | 70082694 | Data preprocessing + Summarization (BART vs T5) + Architecture diagrams |
+| Sajitha Konda | 700782694 | Data preprocessing + Summarization (BART vs T5) + Architecture diagrams |
 | Mounika Sai Chowdary Chaparala| 700778259 | Semantic retrieval + Question Answering (DistilBERT vs RoBERTa) + Gradio demo app |
 | Babithji Repalle | TODO | Named Entity Recognition (SciBERT vs BERT) + Evaluation and comparison tables + Repo and README |
 
