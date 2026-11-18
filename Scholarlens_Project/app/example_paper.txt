@@ -1,0 +1,11 @@
+Sample input written for the ScholarLens demo (not a real publication).
+
+Introduction. Reading scientific literature takes time, and researchers increasingly need tools that condense long papers into short summaries and answer targeted questions. In this work we study abstractive summarization of computer science papers and extractive question answering over their full text. We fine-tune a BART encoder-decoder model on the arXiv summarization corpus and compare it with T5. We also train a SciBERT tagger to recognise tasks, methods, metrics and materials mentioned in the text.
+
+Method. Each paper is cleaned by removing LaTeX commands, citation markers and URLs, and then split into sentences. For summarization, the first 1024 tokens of the cleaned body are used as input and the author-written abstract is the target. For question answering, the paper is divided into overlapping passages of about 120 words. A sentence-transformer encoder ranks the passages for each question, and a RoBERTa model fine-tuned on SQuAD 2.0 extracts the answer span from the three highest-ranked passages. When no span scores higher than the no-answer option, the system reports that the paper does not contain the answer.
+
+Experiments. Summaries are evaluated with ROUGE-1, ROUGE-2, ROUGE-L and BERTScore on 1,000 held-out arXiv papers. Question answering is evaluated with exact match and F1 on the SQuAD 2.0 development set, and entity recognition with entity-level precision, recall and F1 on the SciERC test split. All models are trained on a single T4 GPU with a fixed random seed of 42.
+
+Results. The fine-tuned BART model outperforms the Lead-3 and TextRank baselines on every ROUGE metric, and SciBERT achieves higher entity F1 than BERT-base, which we attribute to its scientific vocabulary. Retrieval with dense embeddings finds a passage containing the answer more often than TF-IDF.
+
+Conclusion. Combining summarization, entity extraction and retrieval-based question answering gives readers a quick overview of a paper and direct answers to their questions. Future work includes long-document models that read the entire paper and evaluation on questions written by domain experts.

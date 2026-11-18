@@ -1,0 +1,3 @@
+{"paper_id": "example_paper", "question": "What dataset is the model evaluated on?", "answers": ["SQuAD 2.0"]}
+{"paper_id": "example_paper", "question": "Which metric is reported for summarization?", "answers": ["ROUGE-L", "ROUGE"]}
+{"paper_id": "example_paper", "question": "What is the authors' favourite colour?", "answers": []}

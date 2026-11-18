@@ -1,0 +1,27 @@
+flowchart LR
+    U([User: PDF or pasted text]) --> P[PDF text extraction<br/>pypdf]
+    P --> C[Cleaning<br/>LaTeX, citations, URLs,<br/>figure refs removed]
+    C --> S[Sentence split +<br/>120-word overlapping passages]
+
+    subgraph SUM[Summarization]
+        S --> SM[Fine-tuned BART-base<br/>vs T5-small]
+        SM --> SO[Abstract-style summary]
+    end
+
+    subgraph NER[Scientific NER]
+        S --> NM[Fine-tuned SciBERT<br/>vs BERT-base<br/>BIO tagging]
+        NM --> NO[Tasks, Methods, Metrics,<br/>Materials, Other terms]
+    end
+
+    subgraph QA[Question answering]
+        Q([User question]) --> R
+        S --> IDX[Passage index]
+        IDX --> R[Retriever<br/>MiniLM embeddings vs TF-IDF]
+        R --> TOP[Top-3 passages]
+        TOP --> QM[Fine-tuned RoBERTa<br/>vs DistilBERT<br/>span + no-answer]
+        QM --> QO[Answer + evidence passage]
+    end
+
+    SO --> UI[Gradio demo]
+    NO --> UI
+    QO --> UI

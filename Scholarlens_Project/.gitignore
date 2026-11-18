@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Large / generated artifacts (keep out of git)
+data/
+outputs/
+checkpoints/
+wandb/
+*.bin
+*.safetensors
+*.pt
+*.tar.gz
+
+# OS / editor
+.DS_Store
+.vscode/*
+!.vscode/extensions.json

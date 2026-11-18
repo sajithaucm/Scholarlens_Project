@@ -1,0 +1,1 @@
+This is a placeholder paper used only to show the file format. We fine-tune a transformer model for extractive question answering and evaluate it on SQuAD 2.0. For summarization we report ROUGE-L and BERTScore on the arXiv test split. Replace this file with the plain text of a real paper.

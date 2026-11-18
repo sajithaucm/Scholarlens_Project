@@ -1,0 +1,22 @@
+flowchart TB
+    subgraph DATA[1. Data]
+        D1[arXiv summarization<br/>10k papers] --> PRE[Preprocessing +<br/>quality filter]
+        D2[SQuAD 2.0<br/>40k questions] --> PRE
+        D3[SciERC<br/>500 abstracts] --> BIO[Span to BIO<br/>conversion]
+        PRE --> SPL[Fixed-seed splits<br/>train / validation-tune / test]
+        BIO --> SPL
+    end
+    subgraph TRAIN[2. Training - Colab T4 GPU]
+        SPL --> B[Baselines<br/>Lead-3, TextRank, TF-IDF,<br/>no-answer, dictionary]
+        SPL --> FT[Fine-tune 2 models per task<br/>same config, seed 42]
+        FT --> SEL[Best checkpoint on<br/>validation / tune split]
+        SEL --> THR[QA: no-answer threshold<br/>tuned on tune split]
+    end
+    subgraph EVAL[3. Evaluation - test split, used once]
+        B --> M[ROUGE-1/2/L, BERTScore<br/>EM, F1, HasAns/NoAns<br/>entity P/R/F1, Recall@k, MRR]
+        THR --> M
+        SEL --> M
+        M --> CMP[Comparison tables +<br/>figures + error analysis]
+        HW[Hand-written paper<br/>questions] --> CMP
+    end
+    CMP --> REP[IEEE report + demo + slides]
