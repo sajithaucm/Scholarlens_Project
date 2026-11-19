@@ -24,7 +24,9 @@ _DATASET_TAGS = re.compile(r"@xmath\d*|@xcite|@\w*cite\w*")
 # Sentence boundary: end punctuation followed by whitespace and an uppercase
 # letter or digit. Abbreviations such as "et al." and "e.g." are protected below.
 _ABBREVIATIONS = ["et al.", "e.g.", "i.e.", "Fig.", "Eq.", "vs.", "cf.", "approx."]
-_SENT_SPLIT = re.compile(r"(?<=[.!?])\s+(?=[A-Z0-9])")
+# The next sentence may start lower-case: the arXiv dataset text is all lower-case.
+_SENT_SPLIT = re.compile(r"(?<=[.!?])\s+(?=[A-Za-z0-9(\[\"'])")
+_SENT_TAGS = re.compile(r"</?[sS]>")  # <S> ... </S> sentence markers in some arXiv/PubMed copies
 
 
 def clean_text(text: str) -> str:
@@ -32,6 +34,7 @@ def clean_text(text: str) -> str:
     if not text:
         return ""
     text = _DATASET_TAGS.sub(" ", text)
+    text = _SENT_TAGS.sub(" ", text)
     text = _LATEX_INLINE_MATH.sub(" ", text)
     text = _LATEX_COMMAND.sub(" ", text)
     text = _CITATION_NUMERIC.sub(" ", text)

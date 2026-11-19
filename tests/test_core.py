@@ -156,3 +156,13 @@ def test_safe_name_all_platforms():
     assert safe_name(r"C:\Users\me\AppData\Local\Temp\pytest-1\models0\tiny-bart") == "tiny-bart"
     assert safe_name("/tmp/pytest-1/models0/tiny-bert/") == "tiny-bert"
     assert ":" not in safe_name("weird:name") and "\\" not in safe_name(r"a\b")
+
+
+def test_split_sentences_lowercase_arxiv_style():
+    # ccdv/arxiv-summarization text is lower-cased; sentences must still split.
+    text = clean_text("we study deep models for summarization . in this paper we propose a new method .\n"
+                      "experiments show strong gains on arxiv . smith et al. propose a related idea .")
+    sents = split_sentences(text)
+    assert len(sents) == 4, sents
+    assert sents[3].startswith("smith et al. propose")
+    assert clean_text("<S> first sentence . </S> <S> second . </S>") == "first sentence. second."
