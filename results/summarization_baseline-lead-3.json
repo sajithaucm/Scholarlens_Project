@@ -1,0 +1,21 @@
+{
+  "task": "summarization",
+  "model": "baseline-lead-3",
+  "metrics": {
+    "rouge1": 29.07,
+    "rouge2": 6.83,
+    "rougeL": 16.62,
+    "rougeLsum": 25.66,
+    "avg_pred_words": 84.2,
+    "avg_ref_words": 148.8,
+    "bertscore_f1": 83.16,
+    "n_test": 1000
+  },
+  "seed": 42,
+  "timestamp": "2026-11-20 20:05:57",
+  "machine": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "device": "Tesla T4"
+  }
+}

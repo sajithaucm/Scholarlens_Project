@@ -1,0 +1,47 @@
+{
+  "task": "summarization",
+  "model": "t5-small",
+  "metrics": {
+    "rouge1": 42.36,
+    "rouge2": 14.48,
+    "rougeL": 22.48,
+    "rougeLsum": 37.84,
+    "avg_pred_words": 135.7,
+    "avg_ref_words": 148.8,
+    "bertscore_f1": 84.77,
+    "train_minutes": 37.5,
+    "generate_minutes": 15.3,
+    "n_test": 1000
+  },
+  "seed": 42,
+  "timestamp": "2026-11-20 21:42:17",
+  "machine": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "device": "Tesla T4"
+  },
+  "settings": {
+    "learning_rate": 0.0003,
+    "batch_size": 4,
+    "grad_accum_steps": 2,
+    "epochs": 2,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.06,
+    "fp16": true,
+    "logging_steps": 50
+  },
+  "data_sizes": {
+    "train": 10000,
+    "validation": 300,
+    "test": 1000
+  },
+  "max_input_tokens": 1024,
+  "generation": {
+    "num_beams": 4,
+    "max_new_tokens": 256,
+    "min_new_tokens": 50,
+    "length_penalty": 2.0,
+    "no_repeat_ngram_size": 3
+  },
+  "checkpoint": "/content/drive/MyDrive/Scholarlens_Project/outputs/summarization/t5-small/best"
+}
