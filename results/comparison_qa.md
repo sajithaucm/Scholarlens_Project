@@ -1,0 +1,6 @@
+| model                     |   exact_match |    f1 |   has_ans_f1 |   no_ans_accuracy |   train_minutes |   no_answer_threshold |
+|:--------------------------|--------------:|------:|-------------:|------------------:|----------------:|----------------------:|
+| baseline-always-no-answer |         50.1  | 50.1  |         0.05 |            100    |           nan   |               nan     |
+| baseline-tfidf-sentence   |          0.18 | 10.21 |        20.46 |              0    |           nan   |               nan     |
+| distilbert-base-uncased   |         59.37 | 62.02 |        56.11 |             67.92 |            12.9 |                 0.887 |
+| roberta-base              |         75.86 | 79.34 |        82.11 |             76.59 |            25   |                -0.586 |

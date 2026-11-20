@@ -1,0 +1,21 @@
+{
+  "task": "qa",
+  "model": "baseline-tfidf-sentence",
+  "metrics": {
+    "exact_match": 0.18,
+    "f1": 10.21,
+    "has_ans_exact_match": 0.35,
+    "has_ans_f1": 20.46,
+    "no_ans_accuracy": 0.0,
+    "n_total": 11873,
+    "n_has_ans": 5928,
+    "n_no_ans": 5945
+  },
+  "seed": 42,
+  "timestamp": "2026-11-20 19:03:27",
+  "machine": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "device": "Tesla T4"
+  }
+}

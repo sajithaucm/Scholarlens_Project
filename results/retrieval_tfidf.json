@@ -1,0 +1,27 @@
+{
+  "task": "retrieval",
+  "model": "tfidf",
+  "metrics": {
+    "recall_at_1": 81.22,
+    "recall_at_3": 92.11,
+    "mrr": 86.96,
+    "n_queries": 5928,
+    "seconds": 6.4
+  },
+  "seed": 42,
+  "timestamp": "2026-11-20 19:01:52",
+  "machine": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "device": "Tesla T4"
+  },
+  "settings": {
+    "models": [
+      "sentence-transformers/all-MiniLM-L6-v2",
+      "tfidf"
+    ],
+    "top_k_passages": 3,
+    "passage_max_words": 120,
+    "passage_overlap_sentences": 1
+  }
+}

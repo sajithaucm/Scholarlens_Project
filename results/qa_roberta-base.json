@@ -1,0 +1,43 @@
+{
+  "task": "qa",
+  "model": "roberta-base",
+  "metrics": {
+    "exact_match": 75.86,
+    "f1": 79.34,
+    "has_ans_exact_match": 75.13,
+    "has_ans_f1": 82.11,
+    "no_ans_accuracy": 76.59,
+    "n_total": 11873,
+    "n_has_ans": 5928,
+    "n_no_ans": 5945,
+    "f1_threshold_0": 79.64,
+    "no_answer_threshold": -0.586,
+    "tune_f1": 78.77,
+    "train_minutes": 25.0
+  },
+  "seed": 42,
+  "timestamp": "2026-11-20 19:48:17",
+  "machine": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "device": "Tesla T4"
+  },
+  "settings": {
+    "learning_rate": 3e-05,
+    "batch_size": 16,
+    "grad_accum_steps": 1,
+    "epochs": 2,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.06,
+    "fp16": true,
+    "logging_steps": 50
+  },
+  "data_sizes": {
+    "train": 38000,
+    "tune": 2000,
+    "test": 11873
+  },
+  "max_seq_len": 384,
+  "doc_stride": 128,
+  "checkpoint": "/content/drive/MyDrive/Scholarlens_Project/outputs/qa/roberta-base/best"
+}

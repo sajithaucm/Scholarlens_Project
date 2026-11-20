@@ -1,0 +1,21 @@
+{
+  "task": "qa",
+  "model": "baseline-always-no-answer",
+  "metrics": {
+    "exact_match": 50.1,
+    "f1": 50.1,
+    "has_ans_exact_match": 0.05,
+    "has_ans_f1": 0.05,
+    "no_ans_accuracy": 100.0,
+    "n_total": 11873,
+    "n_has_ans": 5928,
+    "n_no_ans": 5945
+  },
+  "seed": 42,
+  "timestamp": "2026-11-20 19:03:26",
+  "machine": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "device": "Tesla T4"
+  }
+}
