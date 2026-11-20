@@ -1,0 +1,4 @@
+model,precision,recall,f1,macro_f1,train_minutes
+baseline-dictionary,17.71,22.16,19.69,19.58,
+allenai/scibert_scivocab_uncased,62.3,67.99,65.02,65.03,3.7
+bert-base-uncased,56.15,67.69,61.38,60.28,3.7

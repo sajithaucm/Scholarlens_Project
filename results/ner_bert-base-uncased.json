@@ -1,0 +1,59 @@
+{
+  "task": "ner",
+  "model": "bert-base-uncased",
+  "metrics": {
+    "precision": 56.15,
+    "recall": 67.69,
+    "f1": 61.38,
+    "macro_f1": 60.28,
+    "token_accuracy": 87.89,
+    "per_type_f1": {
+      "Generic": 71.56,
+      "Material": 58.21,
+      "Method": 67.66,
+      "Metric": 49.66,
+      "OtherScientificTerm": 55.55,
+      "Task": 59.02
+    },
+    "train_minutes": 3.7,
+    "n_test_sentences": 551
+  },
+  "seed": 42,
+  "timestamp": "2026-11-20 22:02:04",
+  "machine": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "device": "Tesla T4"
+  },
+  "settings": {
+    "learning_rate": 5e-05,
+    "batch_size": 16,
+    "grad_accum_steps": 1,
+    "epochs": 10,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.06,
+    "fp16": true,
+    "logging_steps": 50
+  },
+  "data_sizes": {
+    "train": 1861,
+    "validation": 275,
+    "test": 551
+  },
+  "labels": [
+    "O",
+    "B-Task",
+    "I-Task",
+    "B-Method",
+    "I-Method",
+    "B-Metric",
+    "I-Metric",
+    "B-Material",
+    "I-Material",
+    "B-OtherScientificTerm",
+    "I-OtherScientificTerm",
+    "B-Generic",
+    "I-Generic"
+  ],
+  "checkpoint": "/content/drive/MyDrive/Scholarlens_Project/outputs/ner/bert-base-uncased/best"
+}

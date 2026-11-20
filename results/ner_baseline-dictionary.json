@@ -1,0 +1,27 @@
+{
+  "task": "ner",
+  "model": "baseline-dictionary",
+  "metrics": {
+    "precision": 17.71,
+    "recall": 22.16,
+    "f1": 19.69,
+    "macro_f1": 19.58,
+    "token_accuracy": 69.18,
+    "per_type_f1": {
+      "Generic": 25.12,
+      "Material": 21.32,
+      "Method": 11.6,
+      "Metric": 28.1,
+      "OtherScientificTerm": 19.03,
+      "Task": 12.33
+    },
+    "gazetteer_entries": 3991
+  },
+  "seed": 42,
+  "timestamp": "2026-11-20 21:53:29",
+  "machine": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "device": "Tesla T4"
+  }
+}

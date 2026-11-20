@@ -23,6 +23,15 @@ All scores are on the held-out test split (0-100). Baselines are listed first. G
 | roberta-base              |         75.86 | 79.34 |        82.11 |             76.59 |            25   |                -0.586 |
 
 
+## ner
+
+| model                            |   precision |   recall |    f1 |   macro_f1 |   train_minutes |
+|:---------------------------------|------------:|---------:|------:|-----------:|----------------:|
+| baseline-dictionary              |       17.71 |    22.16 | 19.69 |      19.58 |           nan   |
+| allenai/scibert_scivocab_uncased |       62.3  |    67.99 | 65.02 |      65.03 |             3.7 |
+| bert-base-uncased                |       56.15 |    67.69 | 61.38 |      60.28 |             3.7 |
+
+
 ## retrieval
 
 | model                                  |   recall_at_1 |   recall_at_3 |   mrr |
