@@ -20,3 +20,6 @@ wandb/
 .DS_Store
 .vscode/*
 !.vscode/extensions.json
+
+eval/papers/*.txt
+!eval/papers/example_paper.txt
