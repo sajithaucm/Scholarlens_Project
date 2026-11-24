@@ -1,0 +1,23 @@
+{
+  "task": "paper_qa",
+  "model": "pipeline-roberta-base",
+  "metrics": {
+    "exact_match": 62.22,
+    "f1": 62.22,
+    "has_ans_exact_match": 51.43,
+    "has_ans_f1": 51.43,
+    "no_ans_accuracy": 100.0,
+    "n_total": 45,
+    "n_has_ans": 35,
+    "n_no_ans": 10,
+    "retrieval_recall_at_k": 82.86
+  },
+  "seed": 42,
+  "timestamp": "2026-11-24 01:16:10",
+  "machine": {
+    "python": "3.13.16",
+    "torch": "2.14.1+cu130",
+    "device": "Tesla T4"
+  },
+  "n_questions": 45
+}
