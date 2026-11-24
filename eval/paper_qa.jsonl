@@ -1,0 +1,45 @@
+{"paper_id": "sbert", "question": "What network structures does SBERT use to derive sentence embeddings?", "answers": ["siamese and triplet networks", "siamese"]}
+{"paper_id": "sbert", "question": "Which NLI datasets is SBERT fine-tuned on?", "answers": ["SNLI", "Multi-Genre NLI", "MultiNLI"]}
+{"paper_id": "sbert", "question": "What is the default pooling strategy?", "answers": ["MEAN", "mean"]}
+{"paper_id": "sbert", "question": "How long does BERT take to find the most similar pair in a collection of 10,000 sentences?", "answers": ["about 65 hours", "65 hours"]}
+{"paper_id": "sbert", "question": "How long does SBERT take to find the most similar pair among 10,000 sentences?", "answers": ["about 5 seconds", "5 seconds"]}
+{"paper_id": "sbert", "question": "Which objective function is used for training on NLI data?", "answers": ["Classiﬁcation Objective Function", "classiﬁcation objective function"]}
+{"paper_id": "sbert", "question": "Which toolkit is used to evaluate SBERT on transfer learning tasks?", "answers": ["SentEval"]}
+{"paper_id": "sbert", "question": "What is SBERT's accuracy on ImageNet?", "answers": []}
+{"paper_id": "sbert", "question": "What BLEU score does SBERT achieve on machine translation?", "answers": []}
+{"paper_id": "bertscore", "question": "What kind of embeddings does BERTScore use to compare candidate and reference tokens?", "answers": ["contextual embeddings", "contextual"]}
+{"paper_id": "bertscore", "question": "Which weighting is used to give rare words more importance?", "answers": ["idf", "inverse document frequency", "idf weighting"]}
+{"paper_id": "bertscore", "question": "The WMT benchmarks used for evaluation come from which task?", "answers": ["machine translation", "translation"]}
+{"paper_id": "bertscore", "question": "Besides machine translation, which other generation task is used for evaluation?", "answers": ["image captioning", "captioning"]}
+{"paper_id": "bertscore", "question": "Which adversarial paraphrase detection dataset is used to test robustness?", "answers": ["PAWS"]}
+{"paper_id": "bertscore", "question": "What technique is applied to make BERTScore values more human-readable?", "answers": ["baseline rescaling", "rescale", "rescaling"]}
+{"paper_id": "bertscore", "question": "Which commonly used n-gram metric is BERTScore compared against?", "answers": ["BLEU", "METEOR"]}
+{"paper_id": "bertscore", "question": "How much does it cost to compute BERTScore on a cloud server?", "answers": []}
+{"paper_id": "bertscore", "question": "Which university did the first author attend as an undergraduate?", "answers": []}
+{"paper_id": "scibert", "question": "Which corpus is SciBERT pretrained on?", "answers": ["Semantic Scholar", "papers from Semantic Scholar"]}
+{"paper_id": "scibert", "question": "How many papers are in the pretraining corpus?", "answers": ["1.14M", "1.14M papers"]}
+{"paper_id": "scibert", "question": "What is the name of SciBERT's in-domain vocabulary?", "answers": ["SCIVOCAB", "SciVocab"]}
+{"paper_id": "scibert", "question": "What percentage of tokens overlap between SCIVOCAB and BASEVOCAB?", "answers": ["42%", "42"]}
+{"paper_id": "scibert", "question": "Which two domains do the papers in the corpus come from?", "answers": ["computer science", "biomedical", "computer science domain and 82% from the broad biomedical domain"]}
+{"paper_id": "scibert", "question": "On which kinds of tasks is SciBERT evaluated?", "answers": ["sequence tagging", "dependency parsing"]}
+{"paper_id": "scibert", "question": "Which framework is used to implement the models?", "answers": ["AllenNLP", "PyTorch"]}
+{"paper_id": "scibert", "question": "How much did the electricity for pretraining cost?", "answers": []}
+{"paper_id": "scibert", "question": "Which programming language did the authors learn first?", "answers": []}
+{"paper_id": "longformer", "question": "How does the self-attention operation of standard transformers scale with sequence length?", "answers": ["quadratically", "scales quadratically with the sequence length"]}
+{"paper_id": "longformer", "question": "How does Longformer's attention mechanism scale with sequence length?", "answers": ["linearly", "scales linearly with sequence length"]}
+{"paper_id": "longformer", "question": "Which two kinds of attention does Longformer combine?", "answers": ["local windowed attention", "global attention"]}
+{"paper_id": "longformer", "question": "Which character-level language modeling datasets are used?", "answers": ["text8 and enwik8", "text8", "enwik8"]}
+{"paper_id": "longformer", "question": "What is the name of the encoder-decoder variant of Longformer?", "answers": ["Longformer-Encoder-Decoder", "LED", "Longformer-Encoder-Decoder (LED)"]}
+{"paper_id": "longformer", "question": "On which dataset is the encoder-decoder variant evaluated?", "answers": ["arXiv summarization dataset", "arXiv summarization", "arXiv"]}
+{"paper_id": "longformer", "question": "What maximum sequence length does the pretrained Longformer use?", "answers": ["4,096", "4096"]}
+{"paper_id": "longformer", "question": "How many people reviewed the paper before submission?", "answers": []}
+{"paper_id": "longformer", "question": "What is Longformer's accuracy on image classification?", "answers": []}
+{"paper_id": "dpr", "question": "What framework is used to learn the question and passage embeddings?", "answers": ["dual-encoder framework", "dual-encoder"]}
+{"paper_id": "dpr", "question": "Which sparse retrieval system is DPR compared against?", "answers": ["BM25"]}
+{"paper_id": "dpr", "question": "How many words long is each Wikipedia passage?", "answers": ["100 words", "100"]}
+{"paper_id": "dpr", "question": "How many passages are in the retrieval corpus?", "answers": ["21,015,324", "21M", "21 million"]}
+{"paper_id": "dpr", "question": "Which library is used for efficient similarity search over the passage index?", "answers": ["FAISS"]}
+{"paper_id": "dpr", "question": "What training trick reuses the gold passages of other questions in the same batch as negatives?", "answers": ["in-batch negatives", "in-batch negative"]}
+{"paper_id": "dpr", "question": "Which large-scale open-domain QA dataset from Google is used for evaluation?", "answers": ["Natural Questions", "NQ"]}
+{"paper_id": "dpr", "question": "How much did it cost to annotate the datasets?", "answers": []}
+{"paper_id": "dpr", "question": "What hardware runs the authors' public demo website?", "answers": []}
