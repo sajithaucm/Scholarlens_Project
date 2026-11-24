@@ -24,6 +24,7 @@ HEADLINE = {
     "qa": ["exact_match", "f1", "has_ans_f1", "no_ans_accuracy"],
     "ner": ["precision", "recall", "f1", "macro_f1"],
     "retrieval": ["recall_at_1", "recall_at_3", "mrr"],
+    "paper_qa": ["exact_match", "f1", "has_ans_exact_match", "no_ans_accuracy", "retrieval_recall_at_k"],
 }
 EXTRA = ["train_minutes", "avg_pred_words", "no_answer_threshold"]
 
